@@ -1,18 +1,26 @@
 import React, { useState } from "react";
+import { Error } from "../Error";
 
 export const Pergunta = () => {
   const [orcamentoState, setOrcamentoState] = useState(0);
+  const [hasError, setHasError] = useState(false);
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-    console.log("enviado");
 
+    if (orcamentoState < 1 || isNaN(orcamentoState)) {
+      setHasError(true);
+      return;
+    }
+
+    setHasError(false);
     setOrcamentoState(parseInt(0));
-  };
+  }
 
   return (
     <>
       <h2>Qual o seu orçamento?</h2>
+      {hasError && <Error>Existe um erro</Error>}
       <form onSubmit={handleSubmit}>
         <input
           className="u-full-width"
