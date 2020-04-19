@@ -5,16 +5,20 @@ import { Formulario } from "./components/Formulario";
 function App() {
   const [orcamentoState, setOrcamentoState] = useState(0);
   const [diferencaState, setDiferencaState] = useState(0);
+  const [showFormOrcamento, setShowFormOrcamento] = useState(true);
 
   return (
     <div className="container">
       <header>
         <h1>Gasto semanal</h1>
         <div className="contenido-principal contenido">
-          <Pergunta
-            setOrcamentoState={setOrcamentoState}
-            setDiferencaState={setDiferencaState}
-          />
+          {showFormOrcamento && (
+            <Pergunta
+              setOrcamentoState={setOrcamentoState}
+              setDiferencaState={setDiferencaState}
+              setShowFormOrcamento={setShowFormOrcamento}
+            />
+          )}
 
           <div className="row">
             <div className="one-half column">

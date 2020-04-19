@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Error } from "../Error";
 
-export const Pergunta = ({ setOrcamentoState, setDiferencaState }) => {
+export const Pergunta = ({
+  setOrcamentoState,
+  setDiferencaState,
+  setShowFormOrcamento,
+}) => {
   const [inputOrcamentoState, setInputOrcamentoState] = useState(0);
   const [hasError, setHasError] = useState(false);
 
@@ -16,6 +20,7 @@ export const Pergunta = ({ setOrcamentoState, setDiferencaState }) => {
     setHasError(false);
     setOrcamentoState(inputOrcamentoState);
     setDiferencaState(inputOrcamentoState);
+    setShowFormOrcamento(false);
     setInputOrcamentoState(parseInt(0));
   }
 
