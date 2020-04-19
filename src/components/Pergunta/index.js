@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { Error } from "../Error";
 
-export const Pergunta = () => {
-  const [orcamentoState, setOrcamentoState] = useState(0);
+export const Pergunta = ({ setOrcamentoState, setDiferencaState }) => {
+  const [inputOrcamentoState, setInputOrcamentoState] = useState(0);
   const [hasError, setHasError] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (orcamentoState < 1 || isNaN(orcamentoState)) {
+    if (inputOrcamentoState < 1 || isNaN(inputOrcamentoState)) {
       setHasError(true);
       return;
     }
 
     setHasError(false);
-    setOrcamentoState(parseInt(0));
+    setOrcamentoState(inputOrcamentoState);
+    setDiferencaState(inputOrcamentoState);
+    setInputOrcamentoState(parseInt(0));
   }
 
   return (
@@ -25,8 +27,8 @@ export const Pergunta = () => {
         <input
           className="u-full-width"
           placeholder="exemplo 60.00"
-          value={orcamentoState}
-          onChange={(e) => setOrcamentoState(parseInt(e.target.value))}
+          value={inputOrcamentoState}
+          onChange={(e) => setInputOrcamentoState(parseInt(e.target.value))}
           type="number"
         />
         <input
