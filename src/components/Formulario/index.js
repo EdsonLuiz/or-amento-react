@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Error } from "../Error";
+import shortid from "shortid";
 
 export const Formulario = () => {
   const [nomeState, setNomeState] = useState("");
@@ -17,6 +18,14 @@ export const Formulario = () => {
       setErrorState(true);
       return;
     }
+
+    const despesa = {
+      nome: nomeState,
+      quantidade: quantidadeState,
+      id: shortid.generate(),
+    };
+
+    console.log(despesa);
 
     setNomeState("");
     setQuantidadeState(0);
