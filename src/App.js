@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Pergunta } from "./components/Pergunta";
 import { Formulario } from "./components/Formulario";
 import { Gastos } from "./components/Gastos";
+import { ControleOrcamento } from "./components/ControleOrcamento";
 
 function App() {
   const [orcamentoState, setOrcamentoState] = useState(0);
@@ -32,6 +33,10 @@ function App() {
             </div>
             <div className="one-half column">
               <Gastos despesasState={despesasState} />
+              <ControleOrcamento
+                orcamentoState={orcamentoState}
+                diferencaState={diferencaState}
+              />
             </div>
           </div>
         </div>
