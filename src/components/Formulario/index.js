@@ -52,7 +52,7 @@ export const Formulario = (props) => {
             type="text"
           />
 
-          <label htmlFor="quantidade">Quantidade</label>
+          <label htmlFor="quantidade">Valor</label>
           <input
             id="quantidade"
             className="u-full-width"
