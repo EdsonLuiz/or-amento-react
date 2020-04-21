@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Error } from "../Error";
 import shortid from "shortid";
 
-export const Formulario = () => {
+export const Formulario = (props) => {
+  const { adicionarNovaDespesa } = props;
+
   const [nomeState, setNomeState] = useState("");
   const [quantidadeState, setQuantidadeState] = useState(0);
   const [errorState, setErrorState] = useState(false);
@@ -24,6 +26,8 @@ export const Formulario = () => {
       quantidade: quantidadeState,
       id: shortid.generate(),
     };
+
+    adicionarNovaDespesa(despesa);
 
     console.log(despesa);
 

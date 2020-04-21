@@ -6,6 +6,11 @@ function App() {
   const [orcamentoState, setOrcamentoState] = useState(0);
   const [diferencaState, setDiferencaState] = useState(0);
   const [showFormOrcamento, setShowFormOrcamento] = useState(true);
+  const [despesasState, setDespesasState] = useState([]);
+
+  const adicionarNovaDespesa = (despesa) => {
+    setDespesasState([...despesasState, despesa]);
+  };
 
   return (
     <div className="container">
@@ -22,7 +27,7 @@ function App() {
 
           <div className="row">
             <div className="one-half column">
-              <Formulario />
+              <Formulario adicionarNovaDespesa={adicionarNovaDespesa} />
             </div>
             <div className="one-half column">2</div>
           </div>
