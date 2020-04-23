@@ -3,7 +3,6 @@ import { Pergunta } from "./components/Pergunta";
 import { Formulario } from "./components/Formulario";
 import { Gastos } from "./components/Gastos";
 import { ControleOrcamento } from "./components/ControleOrcamento";
-import { Gasto } from "./components/Gasto";
 
 function App() {
   const [orcamentoState, setOrcamentoState] = useState(0);
