@@ -1,18 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Pergunta } from "./components/Pergunta";
 import { Formulario } from "./components/Formulario";
 import { Gastos } from "./components/Gastos";
 import { ControleOrcamento } from "./components/ControleOrcamento";
+import { Gasto } from "./components/Gasto";
 
 function App() {
   const [orcamentoState, setOrcamentoState] = useState(0);
   const [diferencaState, setDiferencaState] = useState(0);
   const [showFormOrcamento, setShowFormOrcamento] = useState(true);
   const [despesasState, setDespesasState] = useState([]);
+  const [despesaState, setDespesaState] = useState({});
+  const [criarDespesa, setCriarDespesa] = useState(false)
 
-  const adicionarNovaDespesa = (despesa) => {
-    setDespesasState([...despesasState, despesa]);
-  };
+  useEffect(() => {
+    if(criarDespesa) {
+      setDespesasState([...despesasState, despesaState])
+
+      const restoDespesa = diferencaState - despesaState.quantidade
+      console.log(diferencaState)
+      console.log(despesaState.quantidade)
+      setDiferencaState(restoDespesa)
+
+      setCriarDespesa(false)
+    }
+  }, [criarDespesa, despesaState, despesasState, diferencaState])
+
 
   return (
     <div className="container">
@@ -29,7 +42,7 @@ function App() {
 
           <div className="row">
             <div className="one-half column">
-              <Formulario adicionarNovaDespesa={adicionarNovaDespesa} />
+              <Formulario setDespesaState={setDespesaState} setCriarDespesa={setCriarDespesa} />
             </div>
             <div className="one-half column">
               <Gastos despesasState={despesasState} />

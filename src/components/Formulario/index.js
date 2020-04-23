@@ -3,7 +3,7 @@ import { Error } from "../Error";
 import shortid from "shortid";
 
 export const Formulario = (props) => {
-  const { adicionarNovaDespesa } = props;
+  const { setDespesaState, setCriarDespesa } = props;
 
   const [nomeState, setNomeState] = useState("");
   const [quantidadeState, setQuantidadeState] = useState(0);
@@ -27,7 +27,8 @@ export const Formulario = (props) => {
       id: shortid.generate(),
     };
 
-    adicionarNovaDespesa(despesa);
+    setDespesaState(despesa);
+    setCriarDespesa(true)
 
     console.log(despesa);
 
