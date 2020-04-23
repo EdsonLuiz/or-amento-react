@@ -1,5 +1,6 @@
 import React from "react";
 import {revisarOrcamento} from '../../helpers'
+import PropTypes from 'prop-types'
 
 export const ControleOrcamento = (props) => {
   const { orcamentoState, diferencaState } = props;
@@ -10,3 +11,8 @@ export const ControleOrcamento = (props) => {
     </>
   );
 };
+
+ControleOrcamento.propTypes = {
+  orcamentoState: PropTypes.number.isRequired ,
+  diferencaState: PropTypes.number.isRequired
+}

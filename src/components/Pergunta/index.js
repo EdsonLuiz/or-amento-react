@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Error } from "../Error";
+import PropTypes from 'prop-types'
 
 export const Pergunta = ({
   setOrcamentoState,
@@ -45,3 +46,9 @@ export const Pergunta = ({
     </>
   );
 };
+
+Pergunta.propTypes = {
+  setOrcamentoState: PropTypes.func.isRequired,
+  setDiferencaState: PropTypes.func.isRequired,
+  setShowFormOrcamento: PropTypes.func.isRequired
+}
